@@ -108,7 +108,10 @@ annotorious.plugin.autoSelector.Selector.prototype._attachListeners = function()
     var shape = self.getShape();
     
       if(shape){
-        self.drawRect(self._anchor.x, self._anchor.y);
+        console.log("moveCount", moveCount);
+        if(moveCount < 2){
+          self.drawRect(self._anchor.x, self._anchor.y);
+        }
         self._enabled = false;
         try{
           self._annotator.fireEvent("onSelectionCompleted", 
@@ -134,7 +137,6 @@ annotorious.plugin.autoSelector.Selector.prototype._attachListeners = function()
  */
 annotorious.plugin.autoSelector.Selector.prototype._detachListeners = function() {
   var self = this;
-  console.log("detache???")
   if (this._mouseMoveListener) {
      this._canvas.removeEventListener("mousemove", self._mouseMoveListener);
   }
@@ -199,10 +201,7 @@ annotorious.plugin.autoSelector.Selector.prototype.stopSelection = function() {
  * get gemoetry for drawing tagbox
 */
 annotorious.plugin.autoSelector.Selector.prototype.getShape = function() {
-  console.log("init getShape function");
-
-  var points = [];
-  points.push(this._annotator.toItemCoordinates(this._anchor));
+  console.log("get Opposite: ", this._opposite);
   
   // if overfited (x or y) than (width or height), do checked below
   var x = (this._anchor.x - 240) / this._canvas.width;
@@ -225,12 +224,7 @@ annotorious.plugin.autoSelector.Selector.prototype.getShape = function() {
                    width: 480 / this._canvas.width, 
                    height: 480 / this._canvas.height};
 
-  console.log("coords length: ", this._coords);
-  if(this._coords == null){
-    console.log("coords null");
-  }
-  
-  if (this._opposite &&
+  if (this._opposite && this._opposite.x + this._opposite.y > 0 &&
     (Math.abs(this._opposite.x - this._anchor.x) > 3) &&
     (Math.abs(this._opposite.y - this._anchor.y) > 3)) {
     console.log("changed drag points")
@@ -238,8 +232,10 @@ annotorious.plugin.autoSelector.Selector.prototype.getShape = function() {
     var item_anchor = this._annotator.toItemCoordinates({ x: viewportBounds.left, y: viewportBounds.top });
     var item_opposite = this._annotator.toItemCoordinates({ x: viewportBounds.right - 1, y: viewportBounds.bottom - 1 });
 
+    console.log("Drag Event");
     return { type: 'rect', geometry: { x: item_anchor.x, y: item_anchor.y, width: item_opposite.x - item_anchor.x, height: item_opposite.y - item_anchor.y } };
   } else {
+    console.log("Click Event");
     return { type: 'rect', geometry: { x: autoRect.x, y: autoRect.y, width: autoRect.width, height: autoRect.height } };
   }
 
@@ -296,6 +292,7 @@ annotorious.plugin.autoSelector.Selector.prototype.getViewportBounds = function(
   }
 }
 
+/*
 annotorious.plugin.autoSelector.Selector.prototype.drawShape = function(g2d, shape, highlight) {
   console.log("DrawShape!!!");
 
@@ -317,3 +314,4 @@ annotorious.plugin.autoSelector.Selector.prototype.drawShape = function(g2d, sha
     g2d.strokeRect(geom.x + 1.5, geom.y + 1.5, geom.width - 1, geom.height - 1);
   }
 }
+*/

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Main Page </title>
+
+<!-- Annotorious Library import  -->
+<link type="text/css" rel="stylesheet" href="css/annotorious.css" />
+<script type="text/javascript" src="js/annotorious.min.js"></script>
+<!-- plugin -->
+<script type="text/javascript" src="js/polygon_selector.js"></script>
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/kookmin-hjkim-custom.js"></script>
+<script type="text/javascript" src="js/croppie-js/croppie.js"></script>
+
+</head>
+
+<body onload="init();">
+Test Page
+<p>
+<p>
+<form action="/php/fileUpload.php" method="post" enctype="multipart/form-data">	
+	<p> for input file <p>
+	<input type="file" name="uploadFile" id="uploadFile">
+	<input type="submit" value="file submit" name="submit">
+</form>
+
+<p>-----------------------------------------------------------------</p>
+			<p> Test Annotation </p>
+
+<img id="testimage" src="Images/example_folder/img1.jpg" class="annotatable" 
+     width="200" height="200">
+<p>-----------------------------------------------------------------</p>
+</body>
+</html>
+

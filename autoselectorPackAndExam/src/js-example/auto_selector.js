@@ -52,6 +52,7 @@ annotorious.plugin.autoSelector.Selector.prototype.init = function(annotator, ca
 
   /** @private **/
   this._mouseUpListener;
+  this._mouseDownListner;
 
   /** @private **/
   this._opposite;
@@ -70,7 +71,7 @@ annotorious.plugin.autoSelector.Selector.prototype._attachListeners = function()
     
     moveCount += 1;
     //console.log("getMoveCount",moveCount);
-    if (self._enabled && moveCount > 50) {
+    if (self._enabled && moveCount > 5) {
       self._drawLocking = true; // custom draw Lock.
 
       self._opposite = (event.offsetX == undefined) ? 
@@ -195,6 +196,7 @@ annotorious.plugin.autoSelector.Selector.prototype.stopSelection = function() {
   var self = this;
   self.clearRect();
   delete this._anchor;
+  delete this._opposite;
 }
 
 /*

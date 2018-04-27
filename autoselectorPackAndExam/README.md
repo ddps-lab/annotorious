@@ -65,6 +65,7 @@ https://annotorious.github.io/api.html
 <br>
 
 =======
+
 auto-selector.js | <br>
 
 + annotorious.plugin.autoSelector.prototype.onInitAnnotator = function(annotator)

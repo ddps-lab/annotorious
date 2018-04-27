@@ -1,12 +1,13 @@
-This package created by hyun-june KIM on Bigdata Lab. KOOKMIN-Univ korea.
+This package created by hyun-june KIM on Bigdata Lab. 
+Kookmin univ. in Korea
 
-Create to do auto selected of tagging box that do one click right button from mouse.
+Create to do automatic selection of tagging box that do one click to right button from mouse.
 
 ISSUE - 2018.04.25
 -------------------------------------------------------------------
 
 ## Issue:
-+ at currently You can received to will geometry for rectangle, but got not numeric, it divided by pixel;<br>
++ at currently You can received to geometry for rectangle, but got not numeric, it divided by pixel;<br>
    x / width, y / height
 + 
 
@@ -63,8 +64,6 @@ https://annotorious.github.io/api.html
 </pre>
 <br>
 
-
-Method
 =======
 auto-selector.js | <br>
 
@@ -73,20 +72,20 @@ auto-selector.js | <br>
 
 + annotorious.plugin.autoSelector.Selector.prototype._attachListeners = function()
 > start annotorious handler.<br>
-> **if you want to create to new function, then maybe declare this inner function.<br>
+> **if you want to create to new function, then maybe have to declare this inner function.<br>
 > Can do it !!**<br>
 
 + annotorious.plugin.autoSelector.Selector.prototype.getName = function()
 > that is return type something for want **tag box type.**<br>
 
 + annotorious.plugin.autoSelector.Selector.prototype.stopSelection = function()
-> **Have been called by break attachListeners().**<br>
+> **finish**<br>
 
 + annotorious.plugin.autoSelector.Selector.prototype.startSelection = function(x, y)
 > **Annotorious Entry point.**<br>
-> this function get to geometry x and y from mouse click. <br>
+> this function get pointer from mouse click. <br>
 > Is this like main and you **must be declare attachListeners() in it.**<br>
-> and recommended to called delete geometry job.<br>
+> and recommended to call delete geometry job.<br>
 
 + annotorious.plugin.autoSelector.Selector.prototype.getSupportedShapeType = function()
 > it's important method.<br>
@@ -99,7 +98,7 @@ auto-selector.js | <br>
 > and it return box type, and **it return geometry for sending json data.**<br>
 
 + annotorious.plugin.autoSelector.Selector.prototype.drawShape = function()
-> if you create rectangle type of primary type, and **no more to needed.**
+> **no more to needed.**
 
 + annotorious.plugin.autoSelector.Selector.prototype.drawRect = function(click_x, click_y)
 > it is __**my custom drawing tool for auto sketch.**__<br>

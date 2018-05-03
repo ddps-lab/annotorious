@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Main Page </title>
+
+<!-- for Slide -->
+<!-- this plugin needed to use jquery -->
+<script src="js/jssor.slider-27.1.0.min.js" type="text/javascript"></script>
+<script src="js/thumbnail_load.js" type="text/javascript"></script>
+
+<!-- Annotorious Library import  -->
+<link type="text/css" rel="stylesheet" href="css/annotorious.css" />
+<script type="text/javascript" src="js/annotorious.min.js"></script>
+<!-- <script type="text/javascript" src="js/src/annotorious.js"></script>-->
+<!-- plugin -->
+<script type="text/javascript" src="js/auto_selector.js"></script>
+<script type="text/javascript" src="js/polygon_selector.js"></script>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/kookmin-hjkim-custom.js"></script>
+<!-- AWS -->
+<script type="text/javascript" src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+<script type="text/javascript" src="js/aws_dynamodb_manager.js"></script>
+<script type="text/javascript" src="js/aws_dynamodb_CAID_models.js"></script>
+
+
+
+
+
+
+</head>
+
+<body onload="init();">
+
+
+
+<style>
+	/*jssor slider loading skin spin css*/
+	.jssorl-009-spin img {
+		animation-name: jssorl-009-spin;
+		animation-duration: 1.6s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+
+	@keyframes jssorl-009-spin {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
+</style>
+
+
+<p>
+<input id="readTablesButton" type="button" value="read item" onclick="readTables();"/>
+<input id="putOnThumbnailButton" type="button" value="put item" onclick="thumbnamePut();"/>
+</p>
+<p>
+----------------------------------------------------------------<br>
+
+<div id="thumbnail_block">
+<!-- Loading Screen -->
+	<div id="thumbnail_area" data-u="slides" style="cursor:default;width:450px;height:100px;overflow:hidden;">
+     </div>
+</div>
+
+
+
+----------------------------------------------------------------<br>
+</p>
+
+Test Page
+<p>
+<p>
+<form action="/php/fileUpload.php" method="post" enctype="multipart/form-data">	
+	<p> for input file <p>
+	<input type="file" name="uploadFile" id="uploadFile">
+	<input type="submit" value="file submit" name="submit">
+</form>
+<p>-----------------------------------------------------------------</p>
+			<p> Test Annotation </p>
+
+<div id ="block">
+<img id="testimage" src="Images/example_folder/img1.jpg" class="annotatable" 
+     width="max" height="max">
+</div>
+<p>-----------------------------------------------------------------</p>
+</body>
+
+<!-- slide test -->
+
+<script type="text/javascript">
+
+</script>
+
+</html>
+

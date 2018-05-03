@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>Annotorious Hello World Plugin</title>
+    <link rel="stylesheet" href="../../css/annotorious.css" type="text/css" />
+    <script src="http://localhost:9810/compile?id=annotorious"></script>
+    <script>
+      // A Hello World Plugin
+      annotorious.plugin.HelloWorld = function() { }
+
+      annotorious.plugin.HelloWorld.prototype.onInitAnnotator = function(annotator) {
+        annotator.editor.addField('<strong>Hello World</strong>');
+      }
+
+      anno.addPlugin('HelloWorld', {});
+    </script>
+  </head>
+
+  <body>
+    <img src="../image/640px-Hallstatt.jpg" id="hallstatt" class="annotatable" />
+    <div>
+      <input type="button" value="Add" onclick="addAnnotation();" />
+      <input type="button" value="Remove" onclick="removeAnnotation();" />
+      <input type="button" value="List" onclick="getAnnotations();" />
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut varius 
+      diam posuere quam molestie vestibulum. Vestibulum non volutpat elit. Integer 
+      vitae felis eget magna rutrum sagittis. Nulla facilisi. Praesent a consectetur
+      velit. Cras eget nibh est, eu imperdiet mauris. Nulla quis justo urna. Sed eu
+      rutrum mauris. Integer aliquet nulla sit amet ante mollis pellentesque.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut varius 
+      diam posuere quam molestie vestibulum. Vestibulum non volutpat elit. Integer 
+      vitae felis eget magna rutrum sagittis. Nulla facilisi. Praesent a consectetur
+      velit. Cras eget nibh est, eu imperdiet mauris. Nulla quis justo urna. Sed eu
+      rutrum mauris. Integer aliquet nulla sit amet ante mollis pellentesque.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut varius 
+      diam posuere quam molestie vestibulum. Vestibulum non volutpat elit. Integer 
+      vitae felis eget magna rutrum sagittis. Nulla facilisi. Praesent a consectetur
+      velit. Cras eget nibh est, eu imperdiet mauris. Nulla quis justo urna. Sed eu
+      rutrum mauris. Integer aliquet nulla sit amet ante mollis pellentesque.
+    </p>
+    <img class="annotatable" id="ptolemy" src="../image/371px-Claudius-Ptolemaeus.jpg" class="annotatable">
+    <script>
+      var annotation;
+
+      window.onload = function() {
+        // Some code demonstrating the anno.addAnnotation and 
+        // anno.removeAnnotation API functions
+        annotation = {
+          src: document.getElementById('ptolemy').src,
+          text: "A dummy annotation",
+          shapes: [{
+            type: "rect",
+            units: "pixel",
+            geometry: {
+              x: 100, y: 40, width:100, height: 50
+            }
+          }]
+        }
+      }
+
+      function addAnnotation() {
+       anno.addAnnotation(annotation);
+      }
+
+      function removeAnnotation() {
+        anno.removeAnnotation(annotation);
+      }
+
+      function getAnnotations() {
+        var annotations = anno.getAnnotations(document.getElementById('ptolemy').src);
+        for (var i=0; i<annotations.length; i++) {
+          console.log(annotations[i].text);
+        }
+      }
+    </script>
+  </body>
+</html>

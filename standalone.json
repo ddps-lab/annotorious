@@ -1,0 +1,27 @@
+{
+  "id": "annotorious",
+  "define": {
+    "goog.DEBUG": false,
+    "goog.dom.ASSUME_STANDARDS_MODE": true
+  },
+  "inputs": [
+    "src/annotorious.js",
+    "src/api.js"           // exports JS API and sets up the plugin namespace
+  ],
+  "paths": [
+    "src",
+    "templates"
+  ],
+  "externs": [
+    "externs/api.externs.js",
+    "externs/openlayers.externs.js",
+    "externs/openseadragon.externs.js",
+    "externs/jquery.externs.js",
+    "//json.js",
+    "//webkit_console.js"
+  ],
+  "mode": "ADVANCED",      // "RAW" or "ADVANCED"
+  "level": "DEFAULT",      // "DEFAULT" or "VERBOSE"
+  "pretty-print": false,
+  "debug": false
+}

@@ -13,28 +13,21 @@
 <!-- Annotorious Library import  -->
 <link type="text/css" rel="stylesheet" href="css/annotorious.css" />
 <script type="text/javascript" src="js/annotorious.min.js"></script>
+<script type="text/javascript" src="js/annotorious_UI_custom.js"></script>
 <!-- <script type="text/javascript" src="js/src/annotorious.js"></script>-->
 <!-- plugin -->
 <script type="text/javascript" src="js/auto_selector.js"></script>
 <script type="text/javascript" src="js/polygon_selector.js"></script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="js/kookmin-hjkim-custom.js"></script>
+<script type="text/javascript" src="js/annotorious_handelr.js"></script>
 <!-- AWS -->
 <script type="text/javascript" src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
 <script type="text/javascript" src="js/aws_dynamodb_manager.js"></script>
 <script type="text/javascript" src="js/aws_dynamodb_CAID_models.js"></script>
-
-
-
-
-
+<script type="text/javascript" src="js/amazon-cognito-identity.js"></script>
 
 </head>
-
-<body onload="init();">
-
-
-
+<body>
 <style>
 	/*jssor slider loading skin spin css*/
 	.jssorl-009-spin img {
@@ -57,11 +50,10 @@
 </p>
 <p>
 ----------------------------------------------------------------<br>
-
 <div id="thumbnail_block">
-<!-- Loading Screen -->
-	<div id="thumbnail_area" data-u="slides" style="cursor:default;width:450px;height:100px;overflow:hidden;">
-     </div>
+	<!-- Loading Screen -->
+	<div id="thumbnail_area" data-u="slides" style="cursor:default;width:450px;height:100px;overflow:hidden; border: 1px solid gold">
+	</div>
 </div>
 
 
@@ -81,8 +73,8 @@ Test Page
 			<p> Test Annotation </p>
 
 <div id ="block">
-<img id="testimage" src="Images/example_folder/img1.jpg" class="annotatable" 
-     width="max" height="max">
+<!--<img id="preview" src="Images/example_folder/img1.jpg" class="annotatable" 
+    width="100%" height="100%"> -->
 </div>
 <p>-----------------------------------------------------------------</p>
 </body>

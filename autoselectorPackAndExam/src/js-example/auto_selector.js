@@ -67,7 +67,7 @@ annotorious.plugin.autoSelector.Selector.prototype._attachListeners = function()
   /* mouse dragging listener */
   var moveCount = 0;
   this._mouseMoveListener = function(event) {
-  self._g2d.lineWidth = 6;
+  self._g2d.lineWidth = 2;
     
     moveCount += 1;
     //console.log("getMoveCount",moveCount);
@@ -157,12 +157,12 @@ annotorious.plugin.autoSelector.Selector.prototype.getName = function() {
 annotorious.plugin.autoSelector.Selector.prototype.drawRect = function (click_x, click_y) {
   if (this._drawLocking == false) {
     this._g2d.strokeStyle = "#35E5F1"; // 청색
-    this._g2d.lineWidth = 6;
+    this._g2d.lineWidth = 2;
 
-    var x = click_x - 240;
-    var y = click_y - 240;
-    var w = 480;
-    var h = 480;
+    var x = click_x - 32;
+    var y = click_y - 32;
+    var w = 64;
+    var h = 64;
 
     if (x < 0) {
       x = 0;
@@ -206,25 +206,25 @@ annotorious.plugin.autoSelector.Selector.prototype.getShape = function() {
   console.log("get Opposite: ", this._opposite);
   
   // if overfited (x or y) than (width or height), do checked below
-  var x = (this._anchor.x - 240) / this._canvas.width;
+  var x = (this._anchor.x - 32) / this._canvas.width;
   if(x < 0){
     x = 0;
   }
-  else if ( x + (480/this._canvas.width) > 1 ){
-    x = 1 - (480/this._canvas.width);
+  else if ( x + (64/this._canvas.width) > 1 ){
+    x = 1 - (64/this._canvas.width);
   } 
-  var y = (this._anchor.y - 240 )/ this._canvas.height;
+  var y = (this._anchor.y - 32 )/ this._canvas.height;
   if(y < 0){
     y = 0;
   }
-  else if ( y + (480/this._canvas.height) > 1 ){
-    y = 1 - (480 / this._canvas.height);
+  else if ( y + (64/this._canvas.height) > 1 ){
+    y = 1 - (64 / this._canvas.height);
   }
 
   var autoRect = { x: x, 
                    y: y, 
-                   width: 480 / this._canvas.width, 
-                   height: 480 / this._canvas.height};
+                   width: 64 / this._canvas.width, 
+                   height: 64 / this._canvas.height};
 
   if (this._opposite && this._opposite.x + this._opposite.y > 0 &&
     (Math.abs(this._opposite.x - this._anchor.x) > 3) &&
@@ -252,10 +252,10 @@ annotorious.plugin.autoSelector.Selector.prototype.getViewportBounds = function(
     2) get tag box size.
 **/
 
-  var right = (this._anchor.x - 240); /// this._canvas.width;
-  var left = (this._anchor.x + 240); // / this._canvas.width;
-  var top = (this._anchor.y + 240); // / this._canvas.height;
-  var bottom = (this._anchor.y - 240); // / this._canvas.height;
+  var right = (this._anchor.x - 32); /// this._canvas.width;
+  var left = (this._anchor.x + 32); // / this._canvas.width;
+  var top = (this._anchor.y + 32); // / this._canvas.height;
+  var bottom = (this._anchor.y - 32); // / this._canvas.height;
 
 
   if(right < 0){
